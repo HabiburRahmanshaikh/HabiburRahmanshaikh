@@ -4333,4 +4333,146 @@ header p {
     border-radius: 50px;
     background: linear-gradient(90deg, #1dd1a1, #ff6b6b);
     transition: width 1.5s ease-in-out;
+}/* ================= About Section ================= */
+.about {
+    padding: 60px 0;
+    position: relative;
+}
+
+.main-title h2 {
+    font-size: 36px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.main-title h2 span {
+    color: #ff4b2b;
+}
+
+.bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: rgba(0,0,0,0.05);
+    z-index: -1;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* আগের মতো wrap/remove gap */
+}
+
+/* Left About Box */
+.left-about {
+    width: 48%;
+}
+
+.left-about h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.left-about p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Right About Box */
+.right-about {
+    width: 48%;
+}
+
+.right-about h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* ================= Progress Bar ================= */
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill h5 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.progress {
+    background: #eee;
+    border-radius: 50px;
+    height: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #ff4b2b;
+    width: 0; /* আগের মতো zero বা inline style দিয়ে set হতো */
+    text-align: right;
+    padding-right: 5px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ================= Education Section ================= */
+.edu-info {
+    margin-bottom: 20px;
+}
+
+.edu-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.edu-info table td {
+    padding: 8px 10px;
+    vertical-align: top;
+    font-size: 15px;
+}
+
+/* ================= Personal Details ================= */
+.personal-info {
+    margin-top: 20px;
+}
+
+.personal-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.personal-info table td {
+    padding: 8px 10px;
+    font-size: 15px;
+}
+
+/* ================= Media Queries ================= */
+@media screen and (max-width: 991px) {
+    .about-container {
+        flex-direction: column;
+    }
+    .left-about, .right-about {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .bg-text {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main-title h2 {
+        font-size: 28px;
+    }
+    .bg-text {
+        font-size: 40px;
+    }
+    .left-about p, .right-about p {
+        font-size: 15px;
+    }
 }
