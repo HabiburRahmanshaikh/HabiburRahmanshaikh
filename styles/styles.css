@@ -3946,3 +3946,38 @@ body.light-mode .contact-form-container {
     color: #222;
     border: 1px solid #ddd;
 }
+/* Desktop (default) */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.about-item {
+    flex: 1 1 45%; /* দুই কলাম */
+}
+
+/* 📱 Mobile view */
+@media (max-width: 768px) {
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-item {
+        width: 100%;
+    }
+
+    .left-about {
+        width: 100%;
+    }
+
+    .small-text {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .colorful-headline {
+        font-size: 16px;
+    }
+}
