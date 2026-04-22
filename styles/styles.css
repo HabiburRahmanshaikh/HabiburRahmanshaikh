@@ -4085,3 +4085,135 @@ body.light-mode .left-about h4 {
         font-size: 15px;
     }
 }
+
+/* =========================
+   BASE (Dark Mode Default)
+========================= */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* =========================
+   LEFT ABOUT SECTION
+========================= */
+.left-about {
+    margin-bottom: 20px;
+}
+
+.left-about h4 {
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+.left-about p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* =========================
+   ABOUT CONTAINER
+========================= */
+.about-container {
+    display: flex;
+    flex-direction: column; /* সব আইটেম নিচে নিচে */
+    gap: 20px;
+}
+
+/* =========================
+   ABOUT ITEMS (CARDS)
+========================= */
+.about-item {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    transition: 0.3s;
+}
+
+/* Odd Items */
+.about-item:nth-child(odd) {
+    background-color: #1e1e1e;
+    border-left: 4px solid #ff6b6b;
+}
+
+/* Even Items */
+.about-item:nth-child(even) {
+    background-color: #252525;
+    border-left: 4px solid #1dd1a1;
+}
+
+/* Hover Effect */
+.about-item:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   TEXT STYLE
+========================= */
+.colorful-headline {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ff6b6b;
+}
+
+.small-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+body.light-mode .left-about p {
+    color: #444;
+}
+
+body.light-mode .about-item {
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+/* Light Odd */
+body.light-mode .about-item:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Light Even */
+body.light-mode .about-item:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Text in light mode */
+body.light-mode .small-text {
+    color: #444;
+}
+
+body.light-mode .colorful-headline {
+    color: #ff4757;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .about-item {
+        padding: 12px;
+    }
+
+    .small-text {
+        font-size: 13px;
+    }
+
+    .colorful-headline {
+        font-size: 15px;
+    }
+}
