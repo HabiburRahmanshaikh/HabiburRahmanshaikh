@@ -3924,3 +3924,14 @@ body.light-mode .contact-form-container input::placeholder,
 body.light-mode .contact-form-container textarea::placeholder {
     color: #777;
 }
+.contact-form-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+body.light-mode .contact-form-container {
+    background-color: #ffffff;
+    color: #222;
+    border: 1px solid #ddd;
+}
