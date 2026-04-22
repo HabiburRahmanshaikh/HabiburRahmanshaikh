@@ -3935,3 +3935,14 @@ body.light-mode .contact-form-container {
     color: #222;
     border: 1px solid #ddd;
 }
+.contact-form-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+body.light-mode .contact-form-container {
+    background-color: #ffffff;
+    color: #222;
+    border: 1px solid #ddd;
+}
