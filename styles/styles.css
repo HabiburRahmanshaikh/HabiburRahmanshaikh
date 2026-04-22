@@ -4217,3 +4217,86 @@ body.light-mode .colorful-headline {
         font-size: 15px;
     }
 }
+/* =========================
+   LAYOUT FIX (single column)
+========================= */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* সব আইটেম full width */
+.about-item {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+/* =========================
+   DARK MODE COLORS
+========================= */
+
+/* 1st item (unchanged style) */
+.about-item:nth-child(1) {
+    background-color: #1e1e1e;
+}
+
+/* 2nd item (change color) */
+.about-item:nth-child(2) {
+    background-color: #2a2a2a;
+    border-left: 4px solid #1dd1a1;
+}
+
+/* 3rd item (unchanged style) */
+.about-item:nth-child(3) {
+    background-color: #1e1e1e;
+}
+
+/* 4th item (change color) */
+.about-item:nth-child(4) {
+    background-color: #262626;
+    border-left: 4px solid #ff6b6b;
+}
+
+/* =========================
+   TEXT STYLE
+========================= */
+.colorful-headline {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.small-text {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================
+   LIGHT MODE SUPPORT
+========================= */
+body.light-mode .about-item:nth-child(1) {
+    background-color: #ffffff;
+}
+
+body.light-mode .about-item:nth-child(2) {
+    background-color: #f1f1f1;
+    border-left: 4px solid #1dd1a1;
+}
+
+body.light-mode .about-item:nth-child(3) {
+    background-color: #ffffff;
+}
+
+body.light-mode .about-item:nth-child(4) {
+    background-color: #f6f6f6;
+    border-left: 4px solid #ff6b6b;
+}
+
+body.light-mode .small-text {
+    color: #444;
+}
