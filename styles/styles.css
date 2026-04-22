@@ -4300,3 +4300,73 @@ body.light-mode .about-item:nth-child(4) {
 body.light-mode .small-text {
     color: #444;
 }
+
+
+/* container */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* base card style */
+.about-item1,
+.about-item2,
+.about-item3,
+.about-item4 {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    color: #ddd;
+}
+
+/* ITEM 1 */
+.about-item1 {
+    background: #1e1e1e;
+    border-left: 4px solid #ff6b6b;
+}
+
+/* ITEM 2 */
+.about-item2 {
+    background: #2a2a2a;
+    border-left: 4px solid #1dd1a1;
+}
+
+/* ITEM 3 */
+.about-item3 {
+    background: #1b1b1b;
+    border-left: 4px solid #feca57;
+}
+
+/* ITEM 4 */
+.about-item4 {
+    background: #262626;
+    border-left: 4px solid #54a0ff;
+}
+
+/* TEXT */
+.colorful-headline {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.small-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* LIGHT MODE */
+body.light-mode .about-item1,
+body.light-mode .about-item2,
+body.light-mode .about-item3,
+body.light-mode .about-item4 {
+    background: #fff;
+    color: #333;
+}
+
+body.light-mode .small-text {
+    color: #444;
+}
