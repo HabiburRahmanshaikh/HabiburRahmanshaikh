@@ -3981,3 +3981,107 @@ body.light-mode .contact-form-container {
         font-size: 16px;
     }
 }
+/* ===== About Container ===== */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ===== About Item (Card) ===== */
+.about-item {
+    flex: 1 1 45%;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    color: #e0e0e0;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.about-item:hover {
+    border-color: #ff6b6b;
+}
+
+/* ===== Text ===== */
+.colorful-headline {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.small-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ===== Left About ===== */
+.left-about {
+    margin-bottom: 20px;
+}
+
+.left-about h4 {
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+.left-about p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* =========================
+   🌙 Dark Mode (Default)
+========================= */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* =========================
+   ☀️ Light Mode
+========================= */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+body.light-mode .about-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+body.light-mode .small-text,
+body.light-mode .left-about p {
+    color: #444;
+}
+
+body.light-mode .colorful-headline,
+body.light-mode .left-about h4 {
+    color: #ff4757;
+}
+
+/* =========================
+   📱 Mobile Responsive
+========================= */
+@media (max-width: 768px) {
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-item {
+        width: 100%;
+    }
+
+    .small-text {
+        font-size: 13px;
+    }
+
+    .colorful-headline {
+        font-size: 15px;
+    }
+}
