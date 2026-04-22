@@ -3886,3 +3886,41 @@ textarea {
     flex-direction: column;
   }
 }
+/* Default Dark Mode */
+.contact-form-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+/* Input, textarea, button (inside form) */
+.contact-form-container input,
+.contact-form-container textarea {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+    color: #aaa;
+}
+
+/* Light Mode */
+body.light-mode .contact-form-container {
+    background-color: #ffffff;
+    color: #222;
+    border: 1px solid #ddd;
+}
+
+body.light-mode .contact-form-container input,
+body.light-mode .contact-form-container textarea {
+    background-color: #f5f5f5;
+    color: #222;
+    border: 1px solid #ccc;
+}
+
+body.light-mode .contact-form-container input::placeholder,
+body.light-mode .contact-form-container textarea::placeholder {
+    color: #777;
+}
