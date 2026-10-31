@@ -7,12 +7,7 @@
     const skillObserver = "IntersectionObserver" in window
         ? new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                entry.target.classList.add("is-visible");
-                skillObserver.unobserve(entry.target);
+                entry.target.classList.toggle("is-visible", entry.isIntersecting);
             });
         }, { threshold: 0.2 })
         : null;
