@@ -4342,6 +4342,20 @@ body.light-mode #about .profile-table tr:nth-child(even) {
   width: var(--skill-width);
 }
 
+#about .skills-grid .progress-bar-item:hover .progress-fill,
+#about .skills-grid .progress-bar-item:focus-within .progress-fill {
+  animation: skill-fill 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes skill-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-width);
+  }
+}
+
 #about .skills-grid .progress > .progress-fill > .percent-label {
   width: auto;
   animation: none;
@@ -4353,6 +4367,12 @@ body.light-mode #about .profile-table tr:nth-child(even) {
 @media (prefers-reduced-motion: reduce) {
   #about .skills-grid .progress > .progress-fill {
     transition: none;
+  }
+
+  #about .skills-grid .progress-bar-item:hover .progress-fill,
+  #about .skills-grid .progress-bar-item:focus-within .progress-fill {
+    animation: none;
+    width: var(--skill-width);
   }
 }
 
