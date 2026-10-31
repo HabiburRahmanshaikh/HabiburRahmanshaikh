@@ -4332,9 +4332,14 @@ body.light-mode #about .profile-table tr:nth-child(even) {
 }
 
 #about .skills-grid .progress > .progress-fill {
-  width: var(--skill-width);
+  width: 0;
   animation: none;
   border-radius: inherit;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#about .skills-grid .progress-bar-item.is-visible .progress-fill {
+  width: var(--skill-width);
 }
 
 #about .skills-grid .progress > .progress-fill > .percent-label {
@@ -4343,6 +4348,12 @@ body.light-mode #about .profile-table tr:nth-child(even) {
   color: #fff;
   font-size: 0.7rem;
   line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about .skills-grid .progress > .progress-fill {
+    transition: none;
+  }
 }
 
 #about .certificates-section {
