@@ -1,50 +1,74 @@
 (function () {
-    [...document.querySelectorAll(".control")].forEach(button => {
-        button.addEventListener("click", function() {
-            document.querySelector(".active-btn").classList.remove("active-btn");
-            this.classList.add("active-btn");
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById(button.dataset.id).classList.add("active");
-        })
+    const controls = document.querySelectorAll(".control");
+    const themeButton = document.querySelector(".theme-btn");
+    const body = document.body;
+
+    document.querySelectorAll(".skills-grid .progress-bar-item").forEach(item => {
+        const percent = Number(item.dataset.percent);
+        const progress = item.querySelector(".progress");
+        const fill = item.querySelector(".progress-fill");
+        const title = item.querySelector(".skill-title");
+
+        if (!Number.isFinite(percent) || percent < 0 || percent > 100 || !progress || !fill) {
+            console.error("Unable to initialize skill progress.", item);
+            return;
+        }
+
+        fill.style.setProperty("--skill-width", `${percent}%`);
+        progress.setAttribute("role", "progressbar");
+        progress.setAttribute("aria-label", title ? title.textContent.trim() : "Skill level");
+        progress.setAttribute("aria-valuemin", "0");
+        progress.setAttribute("aria-valuemax", "100");
+        progress.setAttribute("aria-valuenow", String(percent));
     });
-    document.querySelector(".theme-btn").addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-    })
-})();
-const toggleButton = document.getElementById('toggle-theme');
 
-toggleButton.addEventListener('click', () => {
-    if(document.body.classList.contains('dark-mode')){
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-    } else {
-        document.body.classList.remove('light-mode');
-        document.body.classList.add('dark-mode');
+    controls.forEach(control => {
+        control.addEventListener("click", function () {
+            const target = document.getElementById(control.dataset.id);
+            const activeSection = document.querySelector(".container.active");
+
+            if (!target || !activeSection) {
+                console.error("Unable to switch portfolio section.", control.dataset.id);
+                return;
+            }
+
+            activeSection.classList.remove("active");
+            target.classList.add("active");
+
+            controls.forEach(item => {
+                const isActive = item === control;
+                item.classList.toggle("active-btn", isActive);
+                item.setAttribute("aria-current", isActive ? "page" : "false");
+            });
+        });
+    });
+
+    let savedTheme;
+    try {
+        savedTheme = localStorage.getItem("theme");
+    } catch (error) {
+        console.error("Unable to read the saved theme preference.", error);
     }
-});
 
-// ডিফল্ট থিম: light
-document.body.classList.add('light-mode');
-const toggleBtn = document.getElementById('toggle-theme');
-const body = document.body;
+    body.classList.toggle("light-mode", savedTheme === "light");
+    themeButton.setAttribute("aria-pressed", String(savedTheme === "light"));
+    themeButton.setAttribute(
+        "aria-label",
+        savedTheme === "light" ? "Switch to dark theme" : "Switch to light theme"
+    );
 
-// Load saved theme if exists
-if(localStorage.getItem('theme') === 'light') {
-  body.classList.remove('dark-mode');
-  body.classList.add('light-mode');
-}
+    themeButton.addEventListener("click", function () {
+        const isLightMode = body.classList.toggle("light-mode");
+        themeButton.setAttribute("aria-pressed", String(isLightMode));
+        themeButton.setAttribute(
+            "aria-label",
+            isLightMode ? "Switch to dark theme" : "Switch to light theme"
+        );
 
-toggleBtn.addEventListener('click', () => {
-  if(body.classList.contains('dark-mode')) {
-    body.classList.remove('dark-mode');
-    body.classList.add('light-mode');
-    localStorage.setItem('theme', 'light');
-  } else {
-    body.classList.remove('light-mode');
-    body.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark');
-  }
-});const toggle = document.getElementById('modeToggle');
-toggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
+        try {
+            localStorage.setItem("theme", isLightMode ? "light" : "dark");
+        } catch (error) {
+            console.error("Unable to save the theme preference.", error);
+        }
+    });
+})();
