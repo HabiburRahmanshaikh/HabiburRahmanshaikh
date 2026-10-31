@@ -3,7 +3,22 @@
     const themeButton = document.querySelector(".theme-btn");
     const body = document.body;
 
-    document.querySelectorAll(".skills-grid .progress-bar-item").forEach(item => {
+    const skillItems = document.querySelectorAll(".skills-grid .progress-bar-item");
+    const skillObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("is-visible");
+                skillObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.2 })
+        : null;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    skillItems.forEach(item => {
         const percent = Number(item.dataset.percent);
         const progress = item.querySelector(".progress");
         const fill = item.querySelector(".progress-fill");
@@ -20,6 +35,12 @@
         progress.setAttribute("aria-valuemin", "0");
         progress.setAttribute("aria-valuemax", "100");
         progress.setAttribute("aria-valuenow", String(percent));
+
+        if (!skillObserver || prefersReducedMotion) {
+            item.classList.add("is-visible");
+        } else {
+            skillObserver.observe(item);
+        }
     });
 
     controls.forEach(control => {
