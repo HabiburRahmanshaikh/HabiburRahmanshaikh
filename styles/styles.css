@@ -618,6 +618,8 @@ section {
 .btn-con {
   display: flex;
   align-self: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .main-btn {
@@ -5457,5 +5459,272 @@ body.light-mode .main-title h2 > span:not(.bg-text) {
 
   #blogs .blog img {
     height: 12rem;
+  }
+}
+
+:root {
+  --color-primary: #101722;
+  --color-secondary: #e4ad55;
+  --color-white: #f5f7fb;
+  --color-grey-1: #c7d0de;
+  --color-grey-2: #95a3b8;
+  --color-grey-4: #304055;
+  --color-grey-5: #1a2535;
+  --box-shadow-1: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+
+body {
+  min-width: 320px;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+body,
+.container,
+.controls .control,
+.theme-btn {
+  transition-duration: 0.25s;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+.controls {
+  right: max(1.25rem, calc((100vw - 1200px) / 2));
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(16, 23, 34, 0.82);
+  border: 1px solid rgba(199, 208, 222, 0.12);
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+}
+
+.controls .control {
+  width: 48px;
+  height: 48px;
+  margin: 0.2rem 0;
+  background: transparent;
+}
+
+.controls .control:hover,
+.controls .control.active-btn {
+  background: var(--color-secondary);
+}
+
+.controls .control:hover i,
+.controls .control.active-btn i {
+  color: #101722;
+}
+
+.theme-btn {
+  top: 1.25rem;
+  right: max(1.25rem, calc((100vw - 1200px) / 2));
+  width: 48px;
+  height: 48px;
+  background: rgba(48, 64, 85, 0.9);
+}
+
+.header-content .left-header .image {
+  overflow: hidden;
+  border: 1px solid rgba(245, 247, 251, 0.12);
+  box-shadow: var(--box-shadow-1);
+}
+
+.header-content .left-header .image img {
+  filter: none;
+}
+
+.header-content .right-header {
+  max-width: 780px;
+  padding-right: clamp(1rem, 7vw, 8rem);
+}
+
+.header-content .right-header .name {
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.header-content .right-header h2:not(.name) {
+  margin-top: 1.25rem;
+  color: var(--color-grey-1);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.header-content .right-header p {
+  color: var(--color-grey-2);
+}
+
+#about,
+#portfolio,
+#blogs,
+#contact {
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 8vw, 8rem) 6rem !important;
+}
+
+.main-title h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.2;
+}
+
+#about .about-container {
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+#about .about-container .right-about .about-item,
+#about .edu-card,
+#about .training-card,
+#about .certificate-card,
+#about .language-card,
+#about .profile-card {
+  border-color: var(--color-grey-4);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-1);
+}
+
+#about .about-container .right-about .about-item {
+  padding: 1.25rem;
+}
+
+#about .about-container .right-about .about-item:hover {
+  border-color: var(--color-secondary);
+}
+
+#about .about-container .left-about p,
+#about .small-text,
+#about .profile-card-text {
+  line-height: 1.75;
+}
+
+#portfolio .portfolio-item,
+#blogs .blog {
+  border-color: var(--color-grey-4);
+  border-radius: 14px;
+}
+
+#contact .contact-left,
+#contact .contact-form-container {
+  border-radius: 14px;
+}
+
+#contact .contact-text[href] {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+#contact .contact-text[href]:hover {
+  text-decoration-color: currentColor;
+}
+
+body.light-mode .controls {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(37, 50, 71, 0.12);
+}
+
+body.light-mode .controls .control:hover i,
+body.light-mode .controls .control.active-btn i {
+  color: #fff;
+}
+
+body.light-mode .theme-btn {
+  background: rgba(216, 225, 235, 0.95);
+}
+
+@media screen and (max-width: 900px) {
+  .header-content {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+  }
+
+  .header-content .right-header {
+    padding-right: 1rem;
+  }
+
+  #about .about-container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .controls {
+    top: auto;
+    right: auto;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 50%;
+    flex-direction: row;
+    padding: 0.4rem 0.55rem;
+    transform: translateX(-50%);
+  }
+
+  .controls .control {
+    margin: 0 0.15rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-bottom: 6rem;
+  }
+
+  .header-content .left-header {
+    min-height: 38vh;
+    justify-content: center;
+  }
+
+  .header-content .left-header .image {
+    width: min(72%, 18rem);
+    height: 34vh;
+    margin-left: 0;
+  }
+
+  .header-content .left-header .h-shape {
+    width: 75%;
+  }
+
+  .header-content .right-header {
+    padding: 0 0.25rem;
+  }
+
+  .header-content .right-header .name {
+    font-size: clamp(2.2rem, 11vw, 3.3rem);
+  }
+
+  #about,
+  #portfolio,
+  #blogs,
+  #contact {
+    padding: 2rem 1rem 7rem !important;
+  }
+
+  .controls .control {
+    width: 44px;
+    height: 44px;
+  }
+
+  .theme-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
