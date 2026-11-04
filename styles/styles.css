@@ -5782,25 +5782,50 @@ body.light-mode .controls {
 
 .wedding-biodata-control {
   display: flex;
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
+  position: relative;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.65rem 0.9rem;
-  border-radius: 30px;
+  width: 48px;
+  height: 48px;
+  margin: 0.2rem 0;
+  padding: 0;
+  border-radius: 50%;
   background-color: var(--color-secondary);
   color: var(--color-white);
-  font-size: 0.8rem;
-  font-weight: 600;
-  white-space: nowrap;
+  font-size: 1.1rem;
   box-shadow: var(--box-shadow-1);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .wedding-biodata-control:hover {
   transform: translateY(-2px);
+}
+
+.wedding-biodata-label {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.6rem);
+  z-index: 1;
+  overflow: hidden;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: clip-path 0.9s steps(15, end), opacity 0.12s ease;
+}
+
+.wedding-biodata-control:hover .wedding-biodata-label,
+.wedding-biodata-control:focus-visible .wedding-biodata-label {
+  clip-path: inset(0);
+  opacity: 1;
 }
 
 @media screen and (max-width: 1100px) {
@@ -5824,16 +5849,16 @@ body.light-mode .controls {
   }
 
   .wedding-biodata-control {
-    position: static;
-    right: auto;
-    flex-basis: 100%;
-    width: max-content;
-    margin: 0 auto 0.2rem;
-    transform: none;
+    width: 44px;
+    height: 44px;
+    margin: 0 0.15rem;
   }
 
-  .wedding-biodata-control:hover {
-    transform: translateY(-2px);
+  .wedding-biodata-label {
+    top: auto;
+    right: 0;
+    bottom: calc(100% + 0.6rem);
+    transform: none;
   }
 }
 
@@ -5950,6 +5975,24 @@ body.light-mode .controls {
   background-color: #9c671f;
 }
 
-.light-mode .header-content .left-header .h-shape {
-  background-color: #875819;
+body.light-mode .header-content .left-header .h-shape {
+  background-color: var(--color-secondary);
+}
+
+body.light-mode .main-btn:hover,
+body.light-mode .main-btn:hover::before,
+body.light-mode .main-btn:hover .btn-icon {
+  background-color: var(--color-secondary) !important;
+}
+
+body.light-mode .main-btn:hover,
+body.light-mode .main-btn:hover .btn-icon,
+body.light-mode .main-btn:hover .btn-icon i {
+  color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-biodata-label {
+    transition: none;
+  }
 }
